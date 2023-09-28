@@ -20,6 +20,7 @@ list_of_files = [
     "schema.yaml",
     "main.py",
     "app.py",
+    "dataset",
     "requirements.txt",
     "setup.py",
     "research/trials.ipynb",
