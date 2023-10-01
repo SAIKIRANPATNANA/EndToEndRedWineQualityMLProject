@@ -1,6 +1,6 @@
 from RedWineQualityMLProject.constants import *
 from RedWineQualityMLProject.utils.common import read_yaml,create_directories
-from RedWineQualityMLProject.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig,ModelTrainerConfig
+from RedWineQualityMLProject.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTransformationConfig,ModelTrainerConfig,ModelEvaluationConfig
 
 class ConfigurationManager:
     def __init__(
@@ -32,5 +32,11 @@ class ConfigurationManager:
         config = self.config.model_trainer
         schema = self.schema.TARGET_COLUMN
         create_directories(config.root_dir)
-        model_trainer_config  = ModelTrainerConfig(root_dir=config.root_dir,train_data_path=config.train_data_path, test_data_path=config.test_data_path,model_name=config.model_name, target_column=schema.name)
+        model_trainer_config  = ModelTrainerConfig(root_dir=config.root_dir,train_data_path=config.train_data_path,model_name=config.model_name,scaler_name=config.scaler_name,target_column=schema.name)
         return model_trainer_config
+    def get_modelEvaluation_config(self)->ModelEvaluationConfig:
+        config = self.config.model_evaluation
+        schema = self.schema.TARGET_COLUMN
+        create_directories(config.root_dir)
+        return ModelEvaluationConfig(root_dir=config.root_dir, test_data_path=config.test_data_path, model_path=config.model_path,scaler_path=config.scaler_path,metrics_file_name=config.metrics_file_name,target_column=schema.name )
+    
