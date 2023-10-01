@@ -1,4 +1,4 @@
-artifacts_root: artifacts
+artifacts_root: [artifacts]
 data_ingestion:
     root_dir: [artifacts/data_ingestion]
     source_URL: https://github.com/SAIKIRANPATNANA/EndToEndRedWineQualityMLProject/raw/main/archive.zip
@@ -8,4 +8,8 @@ data_validation:
     root_dir: [artifacts/data_validation]
     unzip_data_dir: artifacts/data_ingestion/winequality-red.csv
     STATUS_FILE: artifacts/data_validation/status.txt
-    
+data_transformation:
+    root_dir: [artifacts/data_transformation]
+    data_path: artifacts/data_ingestion/winequality-red.csv
+
+    # data_path == unzip_data_dir
