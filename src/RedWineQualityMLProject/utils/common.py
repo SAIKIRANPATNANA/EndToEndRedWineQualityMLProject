@@ -1,7 +1,7 @@
 import os
 from box.exceptions import BoxValueError
 import yaml
-from src.RedWineQualityMLProject import logger
+from RedWineQualityMLProject import logger
 import joblib
 from ensure import ensure_annotations
 from box import ConfigBox
